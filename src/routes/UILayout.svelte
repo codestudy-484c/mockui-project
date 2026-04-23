@@ -45,6 +45,8 @@
             </h1>
         </div>
     </div>
+    
+    <div class="snap-anchor"></div>
 
     <main class="content-area">
         {@render children()}
@@ -53,6 +55,11 @@
 
 
 <style>
+    :global(html) {
+        scroll-snap-type: y proximity;
+        scroll-snap-stop: always;
+    }
+
     :global(body) {
         margin: 0;
         padding: 0;
@@ -90,6 +97,8 @@
     }
 
     .large-title-area {
+        scroll-snap-align: start;
+
         background-color: white;
 
         display: flex;
@@ -111,6 +120,14 @@
         letter-spacing: -0.02em;
         color: black;
         margin: 0;
+    }
+
+    .snap-anchor {
+        scroll-snap-align: start;
+        scroll-margin-top: 60px;
+
+        height: 0;
+        pointer-events: none;
     }
 
     .content-area {
